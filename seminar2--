@@ -1,0 +1,71 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using static Persoana;
+
+internal class seminar2
+{
+    public static void Main()
+    {
+        Console.WriteLine("Hello, World!");
+        Console.WriteLine();
+
+        Persoana p1 = new Persoana();
+        p1.Id = 11;
+        p1.SetNume("ionescu");
+        Console.WriteLine(p1.Id + " " + p1.GetNume() + " " + p1.Varsta);
+        Console.WriteLine();
+
+        Persoana p2 = new Persoana(22, "Ana", 12);
+        Console.WriteLine(p2.ToString());
+        Console.WriteLine();
+
+        Persoana p3 = p2;
+        p3.Id = 33;
+        p3.Nume = "andreea";
+        p3.Varsta = 10;
+        Console.WriteLine("P2-----\n" + p2);
+        Console.WriteLine("P3-----\n" + p3);
+        Console.WriteLine();
+
+        Persoana p4 = new Persoana(p2);
+        p4.Id = 44;
+        Console.WriteLine("P2-----\n" + p2);
+        Console.WriteLine("P4-----\n" + p4);
+        Console.WriteLine();
+
+        Persoana p5 = (Persoana)p4.Clone();
+        p5.Id = 55;
+        Console.WriteLine("P4-----\n" + p4);
+        Console.WriteLine("P5-----\n" + p5);
+        Console.WriteLine();
+
+        Persoana[] persoane = new Persoana[] { p3, p1, p5, p2, p4 };
+        foreach(Persoana pers in persoane)
+        {
+            Console.WriteLine(pers.ToString());
+        }
+        Console.WriteLine();
+
+        Array.Sort(persoane);
+        foreach (Persoana pers in persoane)
+        {
+            Console.WriteLine(pers.ToString());
+        }
+        Console.WriteLine();
+
+        Student s1 = new Student();
+        Console.WriteLine(s1.ToString());
+        Console.WriteLine();
+
+        s1 = s1 + 0.5f;
+        Console.WriteLine(s1.ToString());
+        s1 = 1.75f + s1;
+        Console.WriteLine(s1.ToString());
+        s1 += 2.15f;
+        Console.WriteLine(s1.ToString());
+        Console.WriteLine();
+    }
+}
